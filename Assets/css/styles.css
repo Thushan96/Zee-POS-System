@@ -2,3 +2,36 @@
     box-shadow: 0 4px 6px 0 rgba(0,0,0,.2);
 }
 
+#item_bottom{
+    bottom: 0;!important;
+}
+#add-new{
+    background-color: #3dc1d3;
+}
+#save-customer{
+    background-color: #27ae60;
+}
+#update-customer{
+    background-color: #fed330;
+}
+#delete-customer{
+    background-color: #fc5c65;
+}
+#clear-customer{
+    background-color: #4b4b4b;
+}
+#clear-customer2{
+    background-color: #4b4b4b;
+}
+#btn_customer_list{
+    background-color: #ced6e0;
+}
+#font_color{
+    color: white;!important;
+}
+#background_color{
+    background-color: rgb(255, 217, 102);
+}
+#background_color2{
+    background-color: rgb(230, 255, 247);
+}
