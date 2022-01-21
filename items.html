@@ -70,7 +70,51 @@
         </div>
     </form>
 
-    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        Search
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title " id="staticBackdropLabel1">Item Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="customer-id1">Item Code</label>
+                        <input type="text" class="form-control" readonly="readonly" id="Item Code"
+                               placeholder="Customer ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name1">Item Name</label>
+                        <input type="text" class="form-control" id="customer-name1" placeholder="Item Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-address1">Item Price</label>
+                        <input type="text" class="form-control" id="customer-address1" placeholder="Item Price">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customer-mobile1">Item Quantity</label>
+                        <input type="text" class="form-control" id="customer-mobile1" placeholder="Item Quantity">
+                    </div>
+
+                </div>
+                <div class="card-footer" id="btn_customer_list1">
+                    <button type="button" id="delete-customer1" class="btn m-3 text-white">Delete</button>
+                    <button type="button" id="update-customer1" class="btn m-2 text-white">Update</button>
+                    <button type="button" id="clear-customer1" class="btn m-2 text-white">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    -->
+<!--    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>-->
     <button type="button" id="delete-customer" class="btn m-3 text-white">Delete</button>
     <button type="button" id="clear-customer2" class="btn m-2 text-white">Clear</button>
 

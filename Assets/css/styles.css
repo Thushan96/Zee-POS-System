@@ -14,16 +14,30 @@
 #update-customer{
     background-color: #fed330;
 }
+#update-customer1{
+    background-color: #fed330;
+}
+
 #delete-customer{
     background-color: #fc5c65;
 }
+#delete-customer1{
+    background-color: #fc5c65;
+}
+
 #clear-customer{
+    background-color: #4b4b4b;
+}
+#clear-customer1{
     background-color: #4b4b4b;
 }
 #clear-customer2{
     background-color: #4b4b4b;
 }
 #btn_customer_list{
+    background-color: #ced6e0;
+}
+#btn_customer_list1{
     background-color: #ced6e0;
 }
 #font_color{
