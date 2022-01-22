@@ -49,3 +49,39 @@
 #background_color2{
     background-color: rgb(230, 255, 247);
 }
+
+/**/
+
+#add-order{
+    background-color: #2ed573;
+}
+#update-order{
+    background-color: #27a3ae;
+}
+#delete-order{
+    background-color: #fc5c65;
+}
+#clear-order{
+    background-color: #4b4b4b;
+}
+#order_body{
+    background-color: #ced6e0;
+}
+#order_body2{
+    background-color: #ced6e0;
+}
+
+#order_btn_list{
+    background-color: #ced6e0;
+}
+#place-order{
+    background-color: #ffb315;
+}
+#place_order_list{
+    background-color: #ced6e0;
+}
+
+.font_sizes{
+    font-size: 4vh;!important;
+}
+

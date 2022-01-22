@@ -9,8 +9,39 @@
     <link href="assets/css/fonts/css/all.css" rel="stylesheet">
 </head>
 <body>
-<main>
-    <nav class="navbar navbar-light" id="background_color2">
+<header >
+    <nav class="border-shadow navbar navbar sticky-top navbar-expand-lg navbar navbar-light rounded-bottom border-bottom border-dark bg-info">
+        <div class="container-fluid">
+            <img src="/Assets/images/zee_logo.png" alt="zee.png" height="40" class="d-inline-block align-text-top">
+            <a class="navbar-brand ms-4"  href="#">Zee POS System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ms-2" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link active ms-5" aria-current="page" href="home.html" rel="index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer.html" rel="index">Customers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="items.html" rel="index">Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="orderDetails.html" rel="index">Order Details</a>
+                    </li>
+                </ul>
+                <button class="btn me-2" type="submit"><i class="fas fa-user-alt"></i>Sign Up</button>
+                <button class="btn me-2" type="submit"><i class="fas fa-sign-out-alt"></i>Log out</button>
+
+            </div>
+        </div>
+    </nav>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</header>
+<main">
+    <nav class="navbar navbar-light" id="background_color2" >
         <div class="container-fluid">
             <form class="d-flex">
                 <img src="Assets/images/Items.png" height="50px" alt="Foods.png" class="d-inline-block align-text-top">
