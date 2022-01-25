@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ms-2" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active ms-5" aria-current="page" href="home.html" rel="index">Home</a>
+                        <a class="nav-link active ms-5" aria-current="page" href="index.html" rel="index">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="customer.html" rel="index">Customers</a>
@@ -41,144 +41,143 @@
 </header>
 <body>
 <main>
-    <nav class="navbar navbar-light" id="background_color">
-        <div class="container-fluid">
-            <form class="d-flex">
-                <img src="Assets/images/user_127px.png" height="50px" alt="customer.png" class="d-inline-block align-text-top">
-                <h3 class="mt-3 "> Manage Customers</h3>
-             </form>
-        </div>
-    </nav>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-info mt-1 ms-2" id="add-new" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        New Customer+
-    </button>
+    <section>
+        <nav class="navbar navbar-light" id="background_color">
+            <div class="container-fluid">
+                <form class="d-flex">
+                    <img src="Assets/images/user_127px.png" height="50px" alt="customer.png" class="d-inline-block align-text-top">
+                    <h3 class="mt-3 "> Manage Customers</h3>
+                </form>
+            </div>
+        </nav>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info mt-1 ms-2" id="add-new" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            New Customer+
+        </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-info">
-                    <h5 class="modal-title " id="staticBackdropLabel">New Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="customer-id">Customer ID</label>
-                        <input type="text" class="form-control" readonly="readonly" id="customer-id"
-                               placeholder="Enter Customer ID">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title " id="staticBackdropLabel">New Customer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="form-group">
-                        <label for="customer-name">Customer Name</label>
-                        <input type="text" class="form-control" id="customer-name" placeholder="Enter Customer Name">
-                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="customer-id">Customer ID</label>
+                            <input type="text" class="form-control" readonly="readonly" id="customer-id"
+                                   placeholder="Enter Customer ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-name">Customer Name</label>
+                            <input type="text" class="form-control" id="customer-name" placeholder="Enter Customer Name">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="customer-address">Customer Address</label>
-                        <input type="text" class="form-control" id="customer-address" placeholder="Enter Customer Address">
-                    </div>
+                        <div class="form-group">
+                            <label for="customer-address">Customer Address</label>
+                            <input type="text" class="form-control" id="customer-address" placeholder="Enter Customer Address">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="customer-mobile">Customer Mobile Number</label>
-                        <input type="text" class="form-control" id="customer-mobile" placeholder="Enter Customer Mobile Number">
-                    </div>
+                        <div class="form-group">
+                            <label for="customer-mobile">Customer Mobile Number</label>
+                            <input type="text" class="form-control" id="customer-mobile" placeholder="Enter Customer Mobile Number">
+                        </div>
 
-                </div>
-                <div class="card-footer" id="btn_customer_list">
-                    <button type="button" id="save-customer" class="btn m-2 text-white">Save</button>
-                    <button type="button" id="update-customer" class="btn m-2 text-white">Update</button>
-                    <button type="button" id="clear-customer" class="btn m-2 text-white">Clear</button>
+                    </div>
+                    <div class="card-footer" id="btn_customer_list">
+                        <button type="button" id="save-customer" class="btn m-2 text-white">Save</button>
+                        <button type="button" id="update-customer" class="btn m-2 text-white">Update</button>
+                        <button type="button" id="clear-customer" class="btn m-2 text-white">Clear</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-<!--    -->
+        <!--    -->
 
-    <form>
-        <div class="form-group d-inline-block mt-3 ms-2">
-            <label for="formGroupExampleInput">Customer ID</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="C001">
-        </div>
-    </form>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-        Search
-    </button>
+        <form>
+            <div class="form-group d-inline-block mt-3 ms-2">
+                <label for="formGroupExampleInput">Customer ID</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="C001">
+            </div>
+        </form>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+            Search
+        </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-info">
-                    <h5 class="modal-title " id="staticBackdropLabel1">Customer Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="customer-id1">Customer ID</label>
-                        <input type="text" class="form-control" readonly="readonly" id="customer-id1"
-                               placeholder="Customer ID">
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-info">
+                        <h5 class="modal-title " id="staticBackdropLabel1">Customer Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="form-group">
-                        <label for="customer-name1">Customer Name</label>
-                        <input type="text" class="form-control" id="customer-name1" placeholder="Customer Name">
-                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="customer-id1">Customer ID</label>
+                            <input type="text" class="form-control" readonly="readonly" id="customer-id1"
+                                   placeholder="Customer ID">
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-name1">Customer Name</label>
+                            <input type="text" class="form-control" id="customer-name1" placeholder="Customer Name">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="customer-address1">Customer Address</label>
-                        <input type="text" class="form-control" id="customer-address1" placeholder="Customer Address">
-                    </div>
+                        <div class="form-group">
+                            <label for="customer-address1">Customer Address</label>
+                            <input type="text" class="form-control" id="customer-address1" placeholder="Customer Address">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="customer-mobile1">Customer Mobile Number</label>
-                        <input type="text" class="form-control" id="customer-mobile1" placeholder="Customer Mobile Number">
-                    </div>
+                        <div class="form-group">
+                            <label for="customer-mobile1">Customer Mobile Number</label>
+                            <input type="text" class="form-control" id="customer-mobile1" placeholder="Customer Mobile Number">
+                        </div>
 
-                </div>
-                <div class="card-footer" id="btn_customer_list1">
-                    <button type="button" id="delete-customer1" class="btn m-3 text-white">Delete</button>
-                    <button type="button" id="update-customer1" class="btn m-2 text-white">Update</button>
-                    <button type="button" id="clear-customer1" class="btn m-2 text-white">Clear</button>
+                    </div>
+                    <div class="card-footer" id="btn_customer_list1">
+                        <button type="button" id="delete-customer1" class="btn m-3 text-white">Delete</button>
+                        <button type="button" id="update-customer1" class="btn m-2 text-white">Update</button>
+                        <button type="button" id="clear-customer1" class="btn m-2 text-white">Clear</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--    -->
-<!--    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>-->
-    <button type="button" id="delete-customer" class="btn m-3 text-white">Delete</button>
-    <button type="button" id="clear-customer2" class="btn m-2 text-white">Clear</button>
+        <!--    -->
+        <!--    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>-->
+        <button type="button" id="delete-customer" class="btn m-3 text-white">Delete</button>
+        <button type="button" id="clear-customer2" class="btn m-2 text-white">Clear</button>
 
-    <h4 class="m-2 text-decoration-underline">All Customers</h4>
+        <h4 class="m-2 text-decoration-underline">All Customers</h4>
 
-    <div class="ms-2 mt-4 col-11">
-        <table class="table table-hover table-bordered border-bottom-0 border-shadow ">
-            <thead>
-            <tr class="table-info">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Mobile</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>077-2345678</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Larry the Bird</td>
-                <td>Moscow</td>
-                <td>071-6745234</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="ms-2 mt-4 col-11">
+            <table class="table table-hover table-bordered border-bottom-0 border-shadow ">
+                <thead>
+                <tr class="table-info">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>077-2345678</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Larry the Bird</td>
+                    <td>Moscow</td>
+                    <td>071-6745234</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
-
-
 
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </main>

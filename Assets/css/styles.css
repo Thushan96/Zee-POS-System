@@ -8,39 +8,75 @@
 #add-new{
     background-color: #3dc1d3;
 }
+#add-new_Item{
+    background-color: #3dc1d3;
+}
 #save-customer{
+    background-color: #27ae60;
+}
+#save-Item{
     background-color: #27ae60;
 }
 #update-customer{
     background-color: #fed330;
 }
-#update-customer1{
+#update-Item{
+    background-color: #fed330;
+}
+
+#update-item1{
     background-color: #fed330;
 }
 
 #delete-customer{
     background-color: #fc5c65;
 }
+#delete-item{
+    background-color: #fc5c65;
+}
+
 #delete-customer1{
+    background-color: #fc5c65;
+}
+#delete-item1{
     background-color: #fc5c65;
 }
 
 #clear-customer{
     background-color: #4b4b4b;
 }
+#clear-Item{
+    background-color: #4b4b4b;
+}
 #clear-customer1{
+    background-color: #4b4b4b;
+}
+#clear-item1{
     background-color: #4b4b4b;
 }
 #clear-customer2{
     background-color: #4b4b4b;
 }
+#clear-item2{
+    background-color: #4b4b4b;
+}
 #btn_customer_list{
     background-color: #ced6e0;
 }
+#btn_Item_list {
+    background-color: #ced6e0;
+}
+
 #btn_customer_list1{
     background-color: #ced6e0;
 }
+#btn_item_list1{
+    background-color: #ced6e0;
+}
 #font_color{
+    color: white;!important;
+}
+#font_color_Item{
     color: white;!important;
 }
 #background_color{
