@@ -20,16 +20,16 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ms-2" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active ms-5" aria-current="page" href="index.html" rel="index">Home</a>
+                        <a class="nav-link ms-5 active" id="home-nav" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="customer.html" rel="index">Customers</a>
+                        <a class="nav-link active" id="customer-nav" aria-current="page" href="#">Customers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="items.html" rel="index">Items</a>
+                        <a class="nav-link active" id="Item-nav" aria-current="page" href="#">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="orderDetails.html" rel="index">Order Details</a>
+                        <a class="nav-link active" id="ODetails-nav" aria-current="page" href="#">Order Details</a>
                     </li>
                 </ul>
                 <button class="btn me-2" type="submit"><i class="fas fa-user-alt"></i>Sign Up</button>
@@ -41,7 +41,7 @@
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </header>
 <main >
-    <section class="bg-image"
+    <section id="sec1" class="bg-image"
     style="
     background-image: url('/Assets/images/bgImage.jpg');
     height: 100vh;
@@ -49,7 +49,7 @@
 
     </section>
 <!--    2-->
-    <section>
+    <section style="display:none; height: 100vh" id="sec2">
         <nav class="navbar navbar-light" id="background_color">
             <div class="container-fluid">
                 <form class="d-flex">
@@ -187,7 +187,7 @@
         </div>
     </section>
 <!--    3-->
-    <section>
+    <section id="sec3" style="display:none;height: 100vh">
         <nav class="navbar navbar-light" id="background_color2" >
             <div class="container-fluid">
                 <form class="d-flex">
@@ -326,7 +326,7 @@
         </div>
     </section>
 <!--4-->
-    <section>
+    <section id="sec4" style="display:none;">
         <section class="content mt-2">
             <div class="container-fluid">
                 <div class="row">
@@ -492,7 +492,7 @@
     </section>
 
 </main>
-<script src="Assets/js/script.js" rel="script"></script>
+<script src="Assets/js/script.js"></script>
 </body>
 <footer class="container-fluid footer bg-black">
     <h6 class="text-center text-muted mt-3"> Copyright © 2022 All right reserved</br> Website Powered BY Tshan</h6>
