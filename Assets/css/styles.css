@@ -127,3 +127,9 @@ footer{
     -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
     box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);
 }
+
+#f1{
+    right: 0;!important;
+    left: 0;!important;
+    margin: auto;!important;
+}

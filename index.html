@@ -44,12 +44,11 @@
     <section id="sec1" class="bg-image"
     style="
     background-image: url('/Assets/images/bgImage.jpg');
-    height: 100vh;
-    height: 100vh">
+    height: 90vh;">
 
     </section>
 <!--    2-->
-    <section style="display:none; height: 100vh" id="sec2">
+    <section style="height: 100vh" id="sec2">
         <nav class="navbar navbar-light" id="background_color">
             <div class="container-fluid">
                 <form class="d-flex">
@@ -187,7 +186,7 @@
         </div>
     </section>
 <!--    3-->
-    <section id="sec3" style="display:none;height: 100vh">
+    <section id="sec3" style="height: 100vh">
         <nav class="navbar navbar-light" id="background_color2" >
             <div class="container-fluid">
                 <form class="d-flex">
@@ -326,7 +325,7 @@
         </div>
     </section>
 <!--4-->
-    <section id="sec4" style="display:none;">
+    <section id="sec4" >
         <section class="content mt-2">
             <div class="container-fluid">
                 <div class="row">
@@ -493,8 +492,46 @@
 
 </main>
 <script src="Assets/js/script.js"></script>
+<script src="Assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    $("#sec1").css("display","block");
+    $("#sec2").css("display","none");
+    $("#sec3").css("display","none");
+    $("#sec4").css("display","none");
+
+    $("#home-nav").click(function (){
+        $("#sec1").css("display","block");
+        $("#sec2").css("display","none");
+        $("#sec3").css("display","none");
+        $("#sec4").css("display","none");
+    });
+
+    $("#customer-nav").click(function (){
+        $("#sec1").css("display","none");
+        $("#sec2").css("display","block");
+        $("#sec3").css("display","none");
+        $("#sec4").css("display","none");
+    });
+
+    $("#Item-nav").click(function (){
+        $("#sec1").css("display","none");
+        $("#sec2").css("display","none");
+        $("#sec3").css("display","block");
+        $("#sec4").css("display","none");
+    });
+
+    $("#ODetails-nav").click(function (){
+        $("#sec1").css("display","none");
+        $("#sec2").css("display","none");
+        $("#sec3").css("display","none");
+        $("#sec4").css("display","block");
+    });
+
+
+
+</script>
 </body>
-<footer class="container-fluid footer bg-black">
-    <h6 class="text-center text-muted mt-3"> Copyright © 2022 All right reserved</br> Website Powered BY Tshan</h6>
+<footer class="card-footer bg-black">
+    <small id="f1" class="text-muted  mt-3 "><b>Copyright © 2022 All right reserved Website Powered BY Tshan</b></small>
 </footer>
 </html>
