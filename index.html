@@ -329,6 +329,7 @@
         <section class="content mt-2">
             <div class="container-fluid">
                 <div class="row mb-2">
+<!--                    1-->
                     <div class="col-md-5">
 
                         <div class="card card-primary" >
@@ -370,6 +371,8 @@
                                                 <select class="form-control" id="cmbItem" >
                                                     <option>Select Item ID </option>
                                                     <option>I001</option>
+                                                    <option>I002</option>
+                                                    <option>I003</option>
                                                 </select>
                                             </div>
                                             <div class="col-lg-6">
@@ -539,6 +542,13 @@
         $("#sec2").css("display","none");
         $("#sec3").css("display","none");
         $("#sec4").css("display","block");
+    });
+
+    $("#add-order").click(function (){
+         var id=$("#cmbItem").val();
+         var qty=$("#qty-order").val();
+        $("#tbl-order").append("<tr><td>"+id+"</td><td>Pizza</td><td>"+qty+"</td><td>900</td><td>1800</td></tr>");
+
     });
 
 
