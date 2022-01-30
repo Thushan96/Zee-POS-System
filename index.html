@@ -9,7 +9,7 @@
     <link href="assets/css/fonts/css/all.css" rel="stylesheet">
 </head>
 <body>
-<header >
+<header>
     <nav class="border-shadow navbar navbar sticky-top navbar-expand-lg navbar navbar-light rounded-bottom border-bottom border-dark bg-info">
         <div class="container-fluid">
             <img src="/Assets/images/zee_logo.png" alt="zee.png" height="40" class="d-inline-block align-text-top">
@@ -48,7 +48,7 @@
 
     </section>
 <!--    2-->
-    <section style="height: 100vh" id="sec2">
+    <section style="height: 90vh" id="sec2">
         <nav class="navbar navbar-light" id="background_color">
             <div class="container-fluid">
                 <form class="d-flex">
@@ -186,7 +186,7 @@
         </div>
     </section>
 <!--    3-->
-    <section id="sec3" style="height: 100vh">
+    <section id="sec3" style="height: 90vh">
         <nav class="navbar navbar-light" id="background_color2" >
             <div class="container-fluid">
                 <form class="d-flex">
@@ -328,8 +328,8 @@
     <section id="sec4" >
         <section class="content mt-2">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row mb-2">
+                    <div class="col-md-5">
 
                         <div class="card card-primary" >
                             <div class="card-header text-white bg-secondary" id="order_header">
@@ -382,7 +382,7 @@
                                             <div class="col-lg-6 mt-2">
                                                 <input type="text" class="form-control dropdown-menu-lg-left" id="qtyOnHand-order" readonly="readonly" placeholder="Qty On Hand">
                                             </div>
-                                            <div class="col-lg-6 mt-2">
+                                            <div class="col mt-2">
                                                 <input type="text" class="form-control dropdown-menu-lg-right" id="unit-price-order" readonly="readonly"  placeholder="Unit Price">
                                             </div>
                                         </div>
@@ -402,55 +402,99 @@
                         </div>
                     </div>
                     <!--              2  -->
-                    <div class="col-md-6">
-                        <div class="card card-primary" id="order_body2">
-                            <div class="form-group mt-4 ms-2">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-5 font_sizes">
-                                        <label for="TotalPrice" ><b>Total :</b></label>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <input type="text" class="form-control dropdown-menu-lg-right" readonly="readonly" id="TotalPrice"  placeholder="1500RS/=">
+                    <div class="col-md-7">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row">
+<!--                                1-->
+                                <div class="col-md-9">
+                                    <div class="card card-primary" id="order_body2">
+                                        <div class="form-group mt-4 ms-2">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-5 font_sizes">
+                                                    <label for="TotalPrice" ><b>Total :</b></label>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="text" class="form-control dropdown-menu-lg-right" readonly="readonly" id="TotalPrice"  placeholder="1500RS/=">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mt-2 ms-2">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-5 font_sizes">
+                                                    <label for="Discount" ><b>Discount :</b></label>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="text" class="form-control dropdown-menu-lg-right"  id="Discount"  placeholder="10">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mt-2 ms-2">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-5 font_sizes">
+                                                    <label for="Cash" ><b>Cash :</b></label>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="text" class="form-control dropdown-menu-lg-right"  id="Cash"  placeholder="2000">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group mt-2 ms-2">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-5 font_sizes">
+                                                    <label for="Balance" ><b>Balance :</b></label>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <input type="text" class="form-control dropdown-menu-lg-right" readonly="readonly" id="Balance"  placeholder="510">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <button type="button" id="place-order" class="btn text-white col-sm-3 col-md-4 col-lg-3 col-xxl-3 col-xl-3 mb-2 m-1"><b>Purchase</b></button>
                                     </div>
                                 </div>
-                            </div>
+<!--                                2-->
+                                <div class="row-md-6 row-sm-12">
+                                    <div class="mt-2">
+                                        <div class="card card-primary">
+                                            <div class="card-header bg-secondary" id="order_list_header">
+                                                <h3 class="card-title text-white">Order details</h3>
+                                            </div>
+                                            <div class="card-body" id="place_order_list">
+                                                <table class="table table-bordered table-hover " id="tbl-order">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Item Code</th>
+                                                        <th>Name</th>
+                                                        <th>Quantity</th>
+                                                        <th>Unit Price</th>
+                                                        <th>Total</th>
+                                                        <th style="width: 40px"></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>I001</td>
+                                                        <td>Burgher</td>
+                                                        <td>2</td>
+                                                        <td>450</td>
+                                                        <td>900</td>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="form-group mt-4 ms-2">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-5 font_sizes">
-                                        <label for="Discount" ><b>Discount :</b></label>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <input type="text" class="form-control dropdown-menu-lg-right"  id="Discount"  placeholder="10">
-                                    </div>
                                 </div>
                             </div>
-
-                            <div class="form-group mt-4 ms-2">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-5 font_sizes">
-                                        <label for="Cash" ><b>Cash :</b></label>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <input type="text" class="form-control dropdown-menu-lg-right"  id="Cash"  placeholder="2000">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group mt-4 ms-2">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-5 font_sizes">
-                                        <label for="Balance" ><b>Balance :</b></label>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <input type="text" class="form-control dropdown-menu-lg-right" readonly="readonly" id="Balance"  placeholder="510">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr>
-                            <button type="button" id="place-order" class="btn text-white col-sm-3 col-md-4 col-lg-3 col-xxl-3 col-xl-3 mb-3 m-2"><b>Purchase</b></button>
                         </div>
+                    </section>
+
                     </div>
                 </div>
                 <!---->
@@ -458,36 +502,6 @@
             </div>
             </div>
         </section>
-        <div class="m-3">
-            <div class="card card-primary">
-                <div class="card-header bg-secondary" id="order_list_header">
-                    <h3 class="card-title text-white">Order details</h3>
-                </div>
-                <div class="card-body" id="place_order_list">
-                    <table class="table table-bordered table-hover " id="tbl-order">
-                        <thead>
-                        <tr>
-                            <th>Item Code</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Unit Price</th>
-                            <th>Total</th>
-                            <th style="width: 40px"></th>
-                        </tr>
-                        <tr>
-                            <td>I001</td>
-                            <td>Burgher</td>
-                            <td>2</td>
-                            <td>450</td>
-                            <td>900</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
     </section>
 
 </main>
