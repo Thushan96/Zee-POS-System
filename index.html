@@ -196,7 +196,7 @@
             </div>
         </nav>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-info mt-1 ms-2" id="add-new_Item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-info mt-1 ms-2" id="add-new_Item" data-bs-toggle="modal" data-bs-target="#ItemstaticBackdrop">
             New Item+
         </button>
 
@@ -248,7 +248,7 @@
         </form>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color_Item" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color_Item" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
             Search
         </button>
 
@@ -478,13 +478,6 @@
                                                         <th>Total</th>
                                                         <th style="width: 40px"></th>
                                                     </tr>
-                                                    <tr>
-                                                        <td>I001</td>
-                                                        <td>Burgher</td>
-                                                        <td>2</td>
-                                                        <td>450</td>
-                                                        <td>900</td>
-                                                    </tr>
                                                     </thead>
                                                     <tbody>
                                                     </tbody>
@@ -544,12 +537,26 @@
         $("#sec4").css("display","block");
     });
 
+    // $("#add-order").click(function (){
+    //      var id=$("#cmbItem").val();
+    //      var qty=$("#qty-order").val();
+    //     $("#tbl-order").append("<tr><td>"+id+"</td><td>Pizza</td><td>"+qty+"</td><td>900</td><td>1800</td></tr>");
+    //
+    // });
+
     $("#add-order").click(function (){
-         var id=$("#cmbItem").val();
-         var qty=$("#qty-order").val();
-        $("#tbl-order").append("<tr><td>"+id+"</td><td>Pizza</td><td>"+qty+"</td><td>900</td><td>1800</td></tr>");
+        let id=$("#cmbItem").val();
+        let qty=$("#qty-order").val();
+        let row=`<tr><td>${id}</td><td>Pizza</td><td>${qty}</td><td>900</td><td>1800</td></tr>`
+        $("#tbl-order").append(row);
+        $("#tbl-order tr").click(function (){
+            console.log(this);
+        });
 
     });
+
+
+
 
 
 
