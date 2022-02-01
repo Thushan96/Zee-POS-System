@@ -168,19 +168,7 @@
                     <th>Mobile</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>077-2345678</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Larry the Bird</td>
-                    <td>Moscow</td>
-                    <td>071-6745234</td>
-                </tr>
+                <tbody id="customer-Tbody">
                 </tbody>
             </table>
         </div>
@@ -307,19 +295,8 @@
                     <th>Quantity</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>I001</td>
-                    <td>Pizza Magharita</td>
-                    <td>800</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>I002</td>
-                    <td>Chicken Burgher</td>
-                    <td>450</td>
-                    <td>3</td>
-                </tr>
+                <tbody id="item-Tbody">
+
                 </tbody>
             </table>
         </div>
@@ -554,6 +531,39 @@
         });
 
     });
+
+
+    $("#save-customer").click(function (){
+        let id=$("#customer-id").val();
+       let name=$("#customer-name").val();
+       let address=$("#customer-address").val();
+       let mobile=$("#customer-mobile").val();
+
+        let row=` <tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${mobile}</td></tr>`;
+        $("#customer-Tbody").append(row);
+
+        $("#customer-Tbody").click(function (){
+            console.log(this);
+        });
+
+    });
+
+    $("#save-Item").click(function(){
+        let code=$("#Item-Code").val();
+        let name=$("#Item-name").val();
+        let price=$("#Item-price").val();
+        let qty=$("#Item-quantity").val();
+        let row= `<tr><td>${code}</td><td>${name}</td><td>${price}</td><td>${qty}</td></tr>`;
+
+        $("#item-Tbody").append(row);
+
+        $("#item-Tbody tr").click(function(){
+            console.log(this)
+        });
+
+
+    });
+
 
 
 
