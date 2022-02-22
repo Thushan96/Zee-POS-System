@@ -73,28 +73,32 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="customer-id">Customer ID</label>
-                            <input type="text" class="form-control" readonly="readonly" id="customer-id"
+                            <input type="text" class="form-control" id="customer-id"
                                    placeholder="Enter Customer ID">
+                            <p><small class="text-danger pl-1" id="lblcusid"></small></p>
                         </div>
                         <div class="form-group">
                             <label for="customer-name">Customer Name</label>
                             <input type="text" class="form-control" id="customer-name" placeholder="Enter Customer Name">
+                            <p><small class="text-danger pl-1" id="lblcusname"></small></p>
                         </div>
 
                         <div class="form-group">
                             <label for="customer-address">Customer Address</label>
                             <input type="text" class="form-control" id="customer-address" placeholder="Enter Customer Address">
+                            <p><small class="text-danger pl-1" id="lblcusaddress"></small></p>
                         </div>
 
                         <div class="form-group">
                             <label for="customer-mobile">Customer Mobile Number</label>
                             <input type="text" class="form-control" id="customer-mobile" placeholder="Enter Customer Mobile Number">
+                            <p><small class="text-danger pl-1" id="lblcusCno"></small></p>
                         </div>
 
                     </div>
                     <div class="card-footer" id="btn_customer_list">
                         <button type="button" id="save-customer" class="btn m-2 text-white">Save</button>
-                        <button type="button" id="update-customer" class="btn m-2 text-white">Update</button>
+                        <button type="button" id="update-customer" class="btn m-2 text-white" disabled>Update</button>
                         <button type="button" id="clear-customer" class="btn m-2 text-white">Clear</button>
                     </div>
                 </div>
@@ -199,7 +203,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="Item-id">Item Code</label>
-                            <input type="text" class="form-control" readonly="readonly" id="Item-id"
+                            <input type="text" class="form-control" id="Item-id"
                                    placeholder="Enter Item Code">
                         </div>
                         <div class="form-group">
@@ -480,6 +484,15 @@
 </main>
 <script src="Assets/js/script.js"></script>
 <script src="Assets/jQuery/jquery-3.6.0.min.js"></script>
+<script src="controller/CustomerController.js"></script>
+<script src="controller/IndexController.js"></script>
+<script src="controller/ItemController.js"></script>
+<script src="controller/OrderController.js"></script>
+<script src="db/DB.js"></script>
+<script src="model/Customer.js"></script>
+<script src="model/Item.js"></script>
+<script src="model/OrderDetails.js"></script>
+<script src="model/Orders.js"></script>
 <script>
     $("#sec1").css("display","block");
     $("#sec2").css("display","none");
@@ -521,53 +534,48 @@
     //
     // });
 
-    $("#add-order").click(function (){
-        let id=$("#cmbItem").val();
-        let qty=$("#qty-order").val();
-        let row=`<tr><td>${id}</td><td>Pizza</td><td>${qty}</td><td>900</td><td>1800</td></tr>`
-        $("#tbl-order").append(row);
-        $("#tbl-order tr").click(function (){
-            console.log(this);
-        });
-
-    });
-
-
-    $("#save-customer").click(function (){
-        let id=$("#customer-id").val();
-       let name=$("#customer-name").val();
-       let address=$("#customer-address").val();
-       let mobile=$("#customer-mobile").val();
-
-        let row=` <tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${mobile}</td></tr>`;
-        $("#customer-Tbody").append(row);
-
-        $("#customer-Tbody").click(function (){
-            console.log(this);
-        });
-
-    });
-
-    $("#save-Item").click(function(){
-        let code=$("#Item-Code").val();
-        let name=$("#Item-name").val();
-        let price=$("#Item-price").val();
-        let qty=$("#Item-quantity").val();
-        let row= `<tr><td>${code}</td><td>${name}</td><td>${price}</td><td>${qty}</td></tr>`;
-
-        $("#item-Tbody").append(row);
-
-        $("#item-Tbody tr").click(function(){
-            console.log(this)
-        });
-
-
-    });
-
-
-
-
-
+    // $("#add-order").click(function (){
+    //     let id=$("#cmbItem").val();
+    //     let qty=$("#qty-order").val();
+    //     let row=`<tr><td>${id}</td><td>Pizza</td><td>${qty}</td><td>900</td><td>1800</td></tr>`
+    //     $("#tbl-order").append(row);
+    //     $("#tbl-order tr").click(function (){
+    //         console.log(this);
+    //     });
+    //
+    // });
+    //
+    //
+    // $("#save-customer").click(function (){
+    //     let id=$("#customer-id").val();
+    //    let name=$("#customer-name").val();
+    //    let address=$("#customer-address").val();
+    //    let mobile=$("#customer-mobile").val();
+    //
+    //     let row=` <tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${mobile}</td></tr>`;
+    //     $("#customer-Tbody").append(row);
+    //
+    //     $("#customer-Tbody").click(function (){
+    //         console.log(this);
+    //     });
+    //
+    // });
+    //
+    // $("#save-Item").click(function(){
+    //     let code=$("#Item-Code").val();
+    //     let name=$("#Item-name").val();
+    //     let price=$("#Item-price").val();
+    //     let qty=$("#Item-quantity").val();
+    //     let row= `<tr><td>${code}</td><td>${name}</td><td>${price}</td><td>${qty}</td></tr>`;
+    //
+    //     $("#item-Tbody").append(row);
+    //
+    //     $("#item-Tbody tr").click(function(){
+    //         console.log(this)
+    //     });
+    //
+    //
+    // });
 
 
 </script>
