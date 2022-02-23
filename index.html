@@ -97,8 +97,8 @@
 
                     </div>
                     <div class="card-footer" id="btn_customer_list">
-                        <button type="button" id="save-customer" class="btn m-2 text-white">Save</button>
-                        <button type="button" id="update-customer" class="btn m-2 text-white" disabled>Update</button>
+                        <button type="button" id="save-customer" class="btn m-2 text-white">Save or Update</button>
+<!--                        <button type="button" id="update-customer" class="btn m-2 text-white" disabled>Update</button>-->
                         <button type="button" id="clear-customer" class="btn m-2 text-white">Clear</button>
                     </div>
                 </div>
@@ -108,12 +108,13 @@
 
         <form>
             <div class="form-group d-inline-block mt-3 ms-2">
-                <label for="formGroupExampleInput">Customer ID</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="C001">
+                <label for="txtCustomer">Customer ID</label>
+                <input type="text" class="form-control" id="txtCustomer" placeholder="C00-001">
+                <p><small class="text-danger pl-1" id="lblCustId"></small></p>
             </div>
         </form>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+        <button type="button" disabled class="btn btn-info d-inline-block position-relative ms-2" id="search-button" >
             Search
         </button>
 
@@ -130,34 +131,42 @@
                             <label for="customer-id1">Customer ID</label>
                             <input type="text" class="form-control" readonly="readonly" id="customer-id1"
                                    placeholder="Customer ID">
+                            <p><small class="text-danger pl-1" id="lblcusId1"></small></p>
+
                         </div>
                         <div class="form-group">
                             <label for="customer-name1">Customer Name</label>
                             <input type="text" class="form-control" id="customer-name1" placeholder="Customer Name">
+                            <p><small class="text-danger pl-1" id="lblcusname1"></small></p>
+
                         </div>
 
                         <div class="form-group">
                             <label for="customer-address1">Customer Address</label>
                             <input type="text" class="form-control" id="customer-address1" placeholder="Customer Address">
+                            <p><small class="text-danger pl-1" id="lblcusaddress1"></small></p>
+
                         </div>
 
                         <div class="form-group">
                             <label for="customer-mobile1">Customer Mobile Number</label>
                             <input type="text" class="form-control" id="customer-mobile1" placeholder="Customer Mobile Number">
+                            <p><small class="text-danger pl-1" id="lblcusCno1"></small></p>
+
                         </div>
 
                     </div>
                     <div class="card-footer" id="btn_customer_list1">
                         <button type="button" id="delete-customer1" class="btn m-3 text-white">Delete</button>
                         <button type="button" id="update-customer1" class="btn m-2 text-white">Update</button>
-                        <button type="button" id="clear-customer1" class="btn m-2 text-white">Clear</button>
+<!--                        <button type="button" id="clear-customer1" class="btn m-2 text-white">Clear</button>-->
                     </div>
                 </div>
             </div>
         </div>
         <!--    -->
         <!--    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>-->
-        <button type="button" id="delete-customer" class="btn m-3 text-white">Delete</button>
+<!--        <button type="button" id="delete-customer" class="btn m-3 text-white">Delete</button>-->
         <button type="button" id="clear-customer2" class="btn m-2 text-white">Clear</button>
 
         <h4 class="m-2 text-decoration-underline">All Customers</h4>
