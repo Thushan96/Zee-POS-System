@@ -59,6 +59,7 @@ $("#save-customer").click(function () {
     saveCustomer();
     clearAll();
     loadAllCustomers();
+    loadCustomerId();
 });
 
 
