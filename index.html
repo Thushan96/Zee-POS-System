@@ -214,26 +214,31 @@
                             <label for="Item-id">Item Code</label>
                             <input type="text" class="form-control" id="Item-id"
                                    placeholder="Enter Item Code">
+                            <p><small class="text-danger pl-1" id="lblItemCode"></small></p>
+
                         </div>
                         <div class="form-group">
                             <label for="Item-name">Item Name</label>
                             <input type="text" class="form-control" id="Item-name" placeholder="Enter Item Name">
+                            <p><small class="text-danger pl-1" id="lblItemName"></small></p>
                         </div>
 
                         <div class="form-group">
                             <label for="Item-price">Item Price</label>
                             <input type="text" class="form-control" id="Item-price" placeholder="Enter Item Price">
+                            <p><small class="text-danger pl-1" id="lblItemPrice"></small></p>
                         </div>
 
                         <div class="form-group">
                             <label for="Item-quantity">Item Quantity</label>
                             <input type="text" class="form-control" id="Item-quantity" placeholder="Enter Item Quantity">
+                            <p><small class="text-danger pl-1" id="lblItemQty"></small></p>
                         </div>
 
                     </div>
                     <div class="card-footer" id="btn_Item_list">
-                        <button type="button" id="save-Item" class="btn m-2 text-white">Save</button>
-                        <button type="button" id="update-Item" class="btn m-2 text-white">Update</button>
+                        <button type="button" id="save-Item" class="btn m-2 text-white">Save Or Update</button>
+<!--                        <button type="button" id="update-Item" class="btn m-2 text-white">Update</button>-->
                         <button type="button" id="clear-Item" class="btn m-2 text-white">Clear</button>
                     </div>
                 </div>
@@ -243,13 +248,14 @@
 
         <form>
             <div class="form-group d-inline-block mt-3 ms-2">
-                <label for="formGroupExampleInputItem">Item Code</label>
-                <input type="text" class="form-control" id="formGroupExampleInputItem" placeholder="I001">
+                <label for="txtItem">Item Code</label>
+                <input type="text" class="form-control" id="txtItem" placeholder="I00-001">
+                <p><small class="text-danger pl-1" id="lblICode"></small></p>
             </div>
         </form>
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color_Item" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+        <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="itemSearch_button">
             Search
         </button>
 
@@ -259,41 +265,45 @@
                 <div class="modal-content">
                     <div class="modal-header bg-info">
                         <h5 class="modal-title " id="staticBackdropLabel2">Item Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" id="item_closebtn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="Item-Code">Item Code</label>
-                            <input type="text" class="form-control" readonly="readonly" id="Item-Code"
+                            <label for="Item-Code1">Item Code</label>
+                            <input type="text" class="form-control" readonly="readonly" id="Item-Code1"
                                    placeholder="Item Code">
+                            <p><small class="text-danger pl-1" id="lblItemCode1"></small></p>
                         </div>
                         <div class="form-group">
-                            <label for="itemForm-name">Item Name</label>
-                            <input type="text" class="form-control" id="itemForm-name" placeholder="Item Name">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="itemForm-price">Item Price</label>
-                            <input type="text" class="form-control" id="itemForm-price" placeholder="Item Price">
+                            <label for="item-name1">Item Name</label>
+                            <input type="text" class="form-control" id="item-name1" placeholder="Item Name">
+                            <p><small class="text-danger pl-1" id="lblItemName1"></small></p>
                         </div>
 
                         <div class="form-group">
-                            <label for="ItemForm-Quantity">Item Quantity</label>
-                            <input type="text" class="form-control" id="ItemForm-Quantity" placeholder="Item Quantity">
+                            <label for="item-price1">Item Price</label>
+                            <input type="text" class="form-control" id="item-price1" placeholder="Item Price">
+                            <p><small class="text-danger pl-1" id="lblItemPrice1"></small></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Item-Quantity1">Item Quantity</label>
+                            <input type="text" class="form-control" id="Item-Quantity1" placeholder="Item Quantity">
+                            <p><small class="text-danger pl-1" id="lblItemQty1"></small></p>
                         </div>
 
                     </div>
                     <div class="card-footer" id="btn_item_list1">
                         <button type="button" id="delete-item1" class="btn m-3 text-white">Delete</button>
                         <button type="button" id="update-item1" class="btn m-2 text-white">Update</button>
-                        <button type="button" id="clear-item1" class="btn m-2 text-white">Clear</button>
+<!--                        <button type="button" id="clear-item1" class="btn m-2 text-white">Clear</button>-->
                     </div>
                 </div>
             </div>
         </div>
         <!--    -->
         <!--    <button type="button" class="btn btn-info d-inline-block position-relative ms-2" id="font_color"><b>Search</b></button>-->
-        <button type="button" id="delete-item" class="btn m-3 text-white">Delete</button>
+<!--        <button type="button" id="delete-item" class="btn m-3 text-white">Delete</button>-->
         <button type="button" id="clear-item2" class="btn m-2 text-white">Clear</button>
 
         <h4 class="m-2 text-decoration-underline">Item List</h4>

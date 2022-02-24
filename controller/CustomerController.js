@@ -84,7 +84,7 @@ $('#search-button').click(function (){
         }
     }
     if (customer){
-
+        $('#txtCustomer').val("");
     }else{
         alert("Invalid Customer Id.Try Again!")
     }
@@ -174,22 +174,22 @@ function formValid() {
                     return true;
                 } else {
                     $("#customer-mobile").css('border', '2px solid red');
-                    $("#lblcusCno").text("Cus Mobile No is a required field : 10 digits");
+                    $("#lblcusCno").text("Customer Mobile No is a required field : 10 digits");
                     return false;
                 }
             } else {
                 $("#customer-address").css('border', '2px solid red');
-                $("#lblcusaddress").text("Cus Name is a required field : Mimum 7");
+                $("#lblcusaddress").text("Customer Address  is a required field : Minimum 7");
                 return false;
             }
         } else {
             $("#customer-name").css('border', '2px solid red');
-            $("#lblcusname").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+            $("#lblcusname").text("Customer Name is a required field : Minimum 5, Max 20, Spaces Allowed");
             return false;
         }
     } else {
         $("#customer-id").css('border', '2px solid red');
-        $("#lblcusid").text("Cus ID is a required field : Pattern C00-000");
+        $("#lblcusid").text("Customer ID is a required field : Pattern C00-000");
         return false;
     }
 }
@@ -332,17 +332,17 @@ function checkFormValid() {
                     return true;
                 } else {
                     $("#customer-mobile1").css('border', '2px solid red');
-                    $("#lblcusCno1").text("Cus Mobile No is a required field : 10 digits");
+                    $("#lblcusCno1").text("Customer Mobile No is a required field : 10 digits");
                     return false;
                 }
             } else {
                 $("#customer-address1").css('border', '2px solid red');
-                $("#lblcusaddress1").text("Cus Name is a required field : Mimum 7");
+                $("#lblcusaddress1").text("Customer Address is a required field : Minimum 7");
                 return false;
             }
         } else {
             $("#customer-name1").css('border', '2px solid red');
-            $("#lblcusname1").text("Cus Name is a required field : Mimimum 5, Max 20, Spaces Allowed");
+            $("#lblcusname1").text("Customer Name is a required field : Minimum 5, Max 20, Spaces Allowed");
             return false;
         }
     } else {
