@@ -92,9 +92,21 @@ $('#search-button').click(function (){
 
 });
 
+function clearAfterUpdate() {
+    $('#customer-id1,#customer-name1,#customer-address1,#customer-mobile1').val("");
+    $('#customer-id1,#customer-name1,#customer-address1,#customer-mobile1').css('border', '2px solid #ced4da');
+    loadAllCustomers();
+    $("#lblcusId1,#lblcusname1,#lblcusaddress1,#lblcusCno1").text("");
+}
+
+
 $("#update-customer1").click(function (){
     updateCustomer();
-    loadAllCustomers();
+    clearAfterUpdate();
+});
+
+$("#closebtn").click(function (){
+    clearAfterUpdate();
 });
 
 function updateCustomer(){
@@ -302,7 +314,7 @@ function searchButton() {
 function checkFormValid() {
     var cusID = $("#customer-id1").val();
     $("#customer-id1").css('border', '2px solid green');
-    $("#lblcusid1").text("");
+    $("#lblcusId1").text("");
     if (cusIDRegEx.test(cusID)) {
         var cusName = $("#customer-name1").val();
         if (cusNameRegEx.test(cusName)) {
@@ -335,7 +347,7 @@ function checkFormValid() {
         }
     } else {
         $("#customer-id1").css('border', '2px solid red');
-        $("#lblcusid1").text("Cus ID is a required field : Pattern C00-000");
+        $("#lblcusId1").text("Cus ID is a required field : Pattern C00-000");
         return false;
     }
 }
@@ -385,7 +397,15 @@ function setUpdateButton() {
     }
 }
 
-("#customer-name1").on('keyup', function (eventOb) {
+$("#customer-id1").on('keyup', function (eventOb) {
+    setUpdateButton();
+    if (eventOb.key == "Enter") {
+        IfValid();
+    }
+
+});
+
+$("#customer-name1").on('keyup', function (eventOb) {
     setUpdateButton();
     if (eventOb.key == "Enter") {
         IfValid();
@@ -405,4 +425,6 @@ $("#customer-mobile1").on('keyup', function (eventOb) {
         IfValid();
     }
 });
+
+
 
