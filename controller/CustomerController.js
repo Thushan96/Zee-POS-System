@@ -104,6 +104,7 @@ function clearAfterUpdate() {
 $("#update-customer1").click(function (){
     updateCustomer();
     clearAfterUpdate();
+    loadCustomerId();
 });
 
 $("#closebtn").click(function (){
@@ -128,6 +129,7 @@ function updateCustomer(){
 $("#delete-customer1").click(function (){
     deleteCustomer();
     loadAllCustomers();
+    loadCustomerId();
 });
 
 function deleteCustomer(){

@@ -59,6 +59,7 @@ $("#save-Item").click(function () {
     saveItem();
     clearAllItems();
     loadAllItems();
+    loadItemId();
 });
 
 
@@ -103,6 +104,7 @@ function clearAfterItemUpdate() {
 $("#update-item1").click(function (){
     updateItem();
     clearAfterItemUpdate();
+    loadItemId();
 });
 
 $("#item_closebtn").click(function (){
@@ -127,6 +129,7 @@ function updateItem(){
 $("#delete-item1").click(function (){
     deleteItem();
     loadAllItems();
+    loadItemId();
 });
 
 function deleteItem(){
