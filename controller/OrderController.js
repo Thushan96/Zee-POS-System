@@ -46,14 +46,34 @@ function  setItemData(code){
 
 }
 
+function getOrderId(){
+    if (orderDB.length==0){
+        return "O-001";
+    }else{
+        var length=orderDB.length;
+        length=length+1;
+        if (length<=9){
+            return "O-00"+length;
+        }else if(length<=99){
+            return "O-0"+length;
+        }else{
+            return "O-"+length;
+        }
+    }
+}
+
+function setOrderId(){
+    $("#order-id").val(getOrderId());
+}
+
 $(document).ready(function () {
+    setOrderId();
     var d = new Date();
 $("#order-date").val(d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate());
 });
 
 $("#qty-order").on('keyup', function (){
     var resp=OrderformValid();
-    alert(resp);
     if (resp){
         $("#add-order").attr('disabled',false);
     }else{
@@ -61,9 +81,42 @@ $("#qty-order").on('keyup', function (){
     }
 });
 
-
+let grandTotal,Total;
 $("#add-order").click(function (){
+    grandTotal=0;
+    Total=0;
+    var orderId=$("#order-id").val();
+    var orderDate=$("#order-date").val();
+    var CusId=$("#cmbCustomer option:selected").text();
+    var CusName=$("#customer-name-order").val();
+    var itemCode=$("#cmbItem option:selected").text();
     var orderQTY=$("#qty-order").val();
+    var unitPrice=$("#unit-price-order").val();
+    Total=orderQTY*unitPrice;
+    grandTotal+=Total;
+
+    var OrderObject=new OrderDTO(orderId,orderDate,CusId,CusName,itemCode,orderQTY,unitPrice,Total);
+    var status=orderDB.push(OrderObject);
+
+    if (status){
+        alert("done")
+    }else {
+        alert("not done")
+    }
+
+    $("#TotalPrice").val(grandTotal);
+
+    var OrderDetailsObject=new OrderDetailsDTO(orderId,grandTotal);
+    orderDetailsDB.push(OrderDetailsObject);
+
+    var itemName=$("#item-name-order").val();
+
+
+    let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${orderQTY}</td><td>${unitPrice}</td><td>${Total}</td>
+                <td><button id="btnItemCartDelete" type="button" class="btn-sm btn-danger">Delete</button>`;
+
+    $("#place-order-Tbody").append(row);
+
 });
 
 
@@ -110,43 +163,3 @@ function OrderformValid() {
 
 }
 
-function formValid() {
-    var cusID = $("#customer-id").val();
-    $("#customer-id").css('border', '2px solid green');
-    $("#lblcusid").text("");
-    if (cusIDRegEx.test(cusID)) {
-        var cusName = $("#customer-name").val();
-        if (cusNameRegEx.test(cusName)) {
-            $("#customer-name").css('border', '2px solid green');
-            $("#lblcusname").text("");
-            var cusAddress = $("#customer-address").val();
-            if (cusAddressRegEx.test(cusAddress)) {
-                var cusMobile = $("#customer-mobile").val();
-                var resp = cusMobileRegEx.test(cusMobile);
-                $("#customer-address").css('border', '2px solid green');
-                $("#lblcusaddress").text("");
-                if (resp) {
-                    $("#customer-mobile").css('border', '2px solid green');
-                    $("#lblcusCno").text("");
-                    return true;
-                } else {
-                    $("#customer-mobile").css('border', '2px solid red');
-                    $("#lblcusCno").text("Customer Mobile No is a required field : 10 digits");
-                    return false;
-                }
-            } else {
-                $("#customer-address").css('border', '2px solid red');
-                $("#lblcusaddress").text("Customer Address  is a required field : Minimum 7");
-                return false;
-            }
-        } else {
-            $("#customer-name").css('border', '2px solid red');
-            $("#lblcusname").text("Customer Name is a required field : Minimum 5, Max 20, Spaces Allowed");
-            return false;
-        }
-    } else {
-        $("#customer-id").css('border', '2px solid red');
-        $("#lblcusid").text("Customer ID is a required field : Pattern C00-000");
-        return false;
-    }
-}
