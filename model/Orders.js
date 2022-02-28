@@ -4,6 +4,7 @@ var __oDate=oDate;
 var __cusId=cusId;
 var __cusName=cusName;
 var __itemCode=itemCode;
+var __itemName=itemName;
 var __OrderQty=OrderQty;
 var __unitPrice=unitPrice;
 var __total=total;
@@ -37,6 +38,12 @@ var __total=total;
     }
     this.getOrderItemCode=function (){
         return __itemCode;
+    }
+    this.setOrderItemName=function (ItemName){
+        __itemName=ItemName;
+    }
+    this.getOrderItemName=function (){
+        return __itemName;
     }
     this.setOrderedQty=function (OrderQty){
         __OrderQty=OrderQty;

@@ -81,22 +81,72 @@ $("#qty-order").on('keyup', function (){
     }
 });
 
-let grandTotal,Total;
+let grandTotal,Total,orderQTY;
 $("#add-order").click(function (){
     grandTotal=0;
     Total=0;
+    orderQTY=0;
     var orderId=$("#order-id").val();
     var orderDate=$("#order-date").val();
     var CusId=$("#cmbCustomer option:selected").text();
     var CusName=$("#customer-name-order").val();
     var itemCode=$("#cmbItem option:selected").text();
-    var orderQTY=$("#qty-order").val();
+    var ItemName=$("#item-name-order").val();
+    orderQTY= parseInt($("#qty-order").val());
     var unitPrice=$("#unit-price-order").val();
     Total=orderQTY*unitPrice;
     grandTotal+=Total;
 
-    var OrderObject=new OrderDTO(orderId,orderDate,CusId,CusName,itemCode,orderQTY,unitPrice,Total);
-    var status=orderDB.push(OrderObject);
+    var status;
+    var OrderObject=new OrderDTO(orderId,orderDate,CusId,CusName,itemCode,ItemName,orderQTY,unitPrice,Total);
+
+    if (orderDB.length==0){
+        status=orderDB.push(OrderObject);
+        loadDataToOrderTable();
+        alert("empty")
+    }else{
+        // for (let ob of orderDB) {
+        //     alert("checked");
+        //     alert(itemCode);
+        //     alert(ob.getOrderItemCode());
+        //     alert(orderId);
+        //     alert(ob.getOrderId());
+        //     if (ob.getOrderItemCode()==itemCode && ob.getOrderId()==orderId){
+        //         orderQTY=orderQTY+ob.getOrderedQty();
+        //         ob.setOrderedQty(orderQTY);
+        //         ob.setTotal(Number(ob.getTotal())+Total);
+        //         loadDataToOrderTable();
+        //         alert("if");
+        //         return;
+        //         status=true;
+        //     }else{
+        //         status=orderDB.push(OrderObject);
+        //         loadDataToOrderTable();
+        //         alert("else");
+        //         return;
+        //     }
+        //     ob++;
+        //
+        // }
+        for (let i = 0; i < orderDB.length; i++) {
+            alert(itemCode);
+            alert(orderDB[i].getOrderItemCode());
+            if (orderDB[i].getOrderItemCode()==itemCode && orderDB[i].getOrderId()==orderId){
+                alert("checked");
+                orderQTY=orderQTY+orderDB[i].getOrderedQty();
+                orderDB[i].setOrderedQty(orderQTY);
+                orderDB[i].setTotal(Number(orderDB[i].getTotal())+Total);
+                loadDataToOrderTable();
+                status=true;
+            }
+            else{
+                status=orderDB.push(OrderObject);
+                loadDataToOrderTable();
+            }
+        }
+    }
+
+
 
     if (status){
         alert("done")
@@ -111,12 +161,27 @@ $("#add-order").click(function (){
 
     var itemName=$("#item-name-order").val();
 
+    loadDataToOrderTable();
+});
 
-    let row = `<tr><td>${itemCode}</td><td>${itemName}</td><td>${orderQTY}</td><td>${unitPrice}</td><td>${Total}</td>
+function loadDataToOrderTable(){
+    $("#place-order-Tbody").empty();
+    let row;
+    for (let i = 0; i < orderDB.length; i++) {
+        row = `<tr><td>${orderDB[i].getOrderItemCode()}</td><td>${orderDB[i].getOrderItemName()}</td><td>${orderDB[i].getOrderedQty()}</td><td>${orderDB[i].getUnitPrice()}</td><td>${orderDB[i].getTotal()}</td>
                 <td><button id="btnItemCartDelete" type="button" class="btn-sm btn-danger">Delete</button>`;
+        $("#place-order-Tbody").append(row);
+    }
+}
 
-    $("#place-order-Tbody").append(row);
-
+$("#place-order").click(function (){
+    for (let i = 0; i < orderDB.length; i++) {
+        for (let j = 0; j < itemDB.length; j++) {
+            if (orderDB[i].getOrderItemCode()==itemDB[j].getItemCode()){
+                itemDB[j].setItemQuantity(itemDB[j].getItemQuantity()-orderDB[i].getOrderedQty());
+            }
+        }
+    }
 });
 
 
