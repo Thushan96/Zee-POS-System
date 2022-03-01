@@ -394,8 +394,8 @@
                                 </div>
                                 <div class="card-footer" id="order_btn_list">
                                     <button type="button" disabled id="add-order" class="btn m-2 text-white">Add Order</button>
-                                    <button type="button" id="update-order" class="btn m-2 text-white">Update</button>
-                                    <button type="button" id="delete-order" class="btn m-2 text-white">Delete</button>
+<!--                                    <button type="button" id="update-order" class="btn m-2 text-white">Update</button>-->
+<!--                                    <button type="button" id="delete-order" class="btn m-2 text-white">Delete</button>-->
                                     <button type="button" id="clear-order" class="btn m-2 text-white">Clear</button>
                                 </div>
                             </form>
@@ -427,6 +427,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <input type="text" class="form-control dropdown-menu-lg-right"  id="Discount"  placeholder="">
+                                                    <p><small class="text-danger pl-1" id="errorFinalDiscount"></small></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -438,6 +439,7 @@
                                                 </div>
                                                 <div class="col-lg-6 col-md-6">
                                                     <input type="text" class="form-control dropdown-menu-lg-right"  id="Cash"  placeholder="">
+                                                    <p><small class="text-danger pl-1" id="errorCash"></small></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -452,10 +454,16 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <hr>
-                                        <button type="button" id="place-order" class="btn text-white col-sm-3 col-md-4 col-lg-3 col-xxl-3 col-xl-3 mb-2 m-1"><b>Purchase</b></button>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-5">
+                                                    <button type="button" id="place-order" class="btn text-white m-2"><b>Purchase</b></button>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h4 id="subTotal"  class="text-danger m-2"></h4>
+                                                </div>
                                     </div>
+                                </div>
                                 </div>
 <!--                                2-->
                                 <div class="row-md-6 row-sm-12">
