@@ -83,6 +83,7 @@ $("#qty-order").on('keyup', function (){
 
 let grandTotal,Total,orderQTY;
 $("#add-order").click(function (){
+    $("#cmbCustomer").attr("disabled", true);
     Total=0;
     orderQTY=0;
     var orderId=$("#order-id").val();
@@ -113,24 +114,39 @@ $("#add-order").click(function (){
             }
         }
 
-    $("#TotalPrice").val(setTotal());
+
 
     var OrderDetailsObject=new OrderDetailsDTO(orderId,setTotal());
     orderDetailsDB.push(OrderDetailsObject);
 
     var itemName=$("#item-name-order").val();
 
-    $("#subTotal").text("SubTotal :RS."+setTotal()+".00");
-
+    setTotal();
+    setEnable();
     loadDataToOrderTable();
 });
 
-function setTotal(){
+function setEnable(){
+    $("#Discount").attr("disabled", false);
+    $("#Cash").attr("disabled", false);
+}
+
+function getTotal(){
     grandTotal=0;
     for (let i = 0; i < orderDB.length; i++) {
         grandTotal+=orderDB[i].getTotal();
     }
     return grandTotal;
+}
+
+function setTotal(){
+if (orderDB.length==0){
+    $("#TotalPrice").val("");
+    $("#subTotal").text("");
+}else{
+    $("#TotalPrice").val(getTotal());
+    $("#subTotal").text("SubTotal :RS."+getTotal()+".00");
+}
 }
 
 function ifExists(){
@@ -162,13 +178,45 @@ $("#place-order").click(function (){
             }
         }
     }
+})
+
+$("#place-order-Tbody").on('click', '#btnItemCartDelete', function () {
+    let tblOrderRow=$(this);
+    let text = "Are you sure you want to remove this Item from cart?";
+
+        if (confirm(text)) {
+            $(this).closest('tr').remove();
+            deleteRow(tblOrderRow);
+            loadDataToOrderTable();
+            setTotal();
+        }
+
 });
+
+function deleteRow(row){
+    let rowId=row.closest('tr').children(':nth-child(1)').text();
+    let orderId=$("#order-id").val();
+    for (let i = 0; i < orderDB.length; i++) {
+        if (orderDB[i].getOrderItemCode()==rowId && orderDB[i].getOrderId()==orderId){
+            orderDB.splice(i,1);
+        }
+    }
+}
+
+
+function getBalance(){
+    let cash=parseInt($("#Cash").val());
+    let grossTotal=setTotalAfterDiscount();
+    let balance=cash-grossTotal;
+    $("#Balance").val(balance);
+
+}
 
 
 // VALIDATIONS
 
 const cusQtyRegEx = /^[0-9]{1,3}$/;
-var CashRegEx=/^[0-9]{2,10}(.)[0-9]{2}$/;
+var CashRegEx= /^[0-9](.){1,6}$/;
 var DiscountRegEx=/^[0-9]{1,2}$/;
 
 $("#Cash").keyup(function (event) {
@@ -177,26 +225,41 @@ $("#Cash").keyup(function (event) {
     if (CashRegEx.test(cash)){
         $("#Cash").css('border','2px solid blue');
         $("#errorCash").text("");
-        if (event.key=="Enter") {
-            $("#Discount").focus();
-        }
+            if($("#place-order-Tbody tr").length <= 1){
+                $("#place-order").attr("disabled", false);
+                if(event.key=="Enter"){
+                    getBalance();
+                }
+            }
+
     }else {
         $("#Cash").css('border','2px solid red');
-        $("#errorCash").text("Cash is a required field: Pattern 00.00");
+        $("#errorCash").text("Cash is a required field: Pattern 00 or 00.00");
     }
 });
 
-$("#Discount").keyup(function () {
+$("#Discount").keyup(function (event) {
 
     let discount = $("#Discount").val();
     if (DiscountRegEx.test(discount)){
         $("#Discount").css('border','2px solid blue');
         $("#errorFinalDiscount").text("");
+        if(event.key=="Enter"){
+            setTotalAfterDiscount();
+        }
     }else {
         $("#Discount").css('border','2px solid red');
         $("#errorFinalDiscount").text("Discount is a required field: Pattern 0");
     }
 });
+
+function setTotalAfterDiscount() {
+        let discount=parseInt($("#Discount").val());
+        let  total=parseInt($("#TotalPrice").val());
+        let grossTotal=total-(total*discount/100);
+    $("#subTotal").text("SubTotal :RS."+grossTotal+".00");
+    return grossTotal;
+}
 
 function OrderformValid() {
     var cusID=$("#customer-name-order").val();
