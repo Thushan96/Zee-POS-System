@@ -95,7 +95,7 @@ function updateQty(){
 }
 
 
-let grandTotal,Total,orderQTY;
+let grandTotal,Total,orderQTY,OrderDetailsObject;
 $("#add-order").click(function (){
     $("#cmbCustomer").attr("disabled", true);
     Total=0;
@@ -128,13 +128,6 @@ $("#add-order").click(function (){
             }
         }
 
-
-
-    var OrderDetailsObject=new OrderDetailsDTO(orderId,setTotal());
-    orderDetailsDB.push(OrderDetailsObject);
-
-    var itemName=$("#item-name-order").val();
-
     setTotal();
     setEnable();
     loadDataToOrderTable();
@@ -142,6 +135,33 @@ $("#add-order").click(function (){
     setItemData(itemCode);
     $("#qty-order").val("");
 });
+
+$("#place-order").click(function (){
+    var orderId=$("#order-id").val();
+    OrderDetailsObject=new OrderDetailsDTO(orderId,setTotalAfterDiscount());
+    orderDetailsDB.push(OrderDetailsObject);
+    clearData();
+    setOrderId();
+    var d = new Date();
+    $("#order-date").val(d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate());
+
+})
+
+function clearData(){
+    $("#order-id,#customer-name-order,#item-name-order,#qty-order,#unit-price-order,#qtyOnHand-order").val("");
+    $("#TotalPrice,#Discount,#Cash,#Balance").val("");
+    $("#cmbCustomer").val(0);
+    $("#cmbItem").val(0);
+    $("cmbItem").attr("disabled",false);
+    $("#cmbCustomer").attr("disabled",false);
+    $("#Discount").attr("disabled", true);
+    $("#Cash").attr("disabled", true);
+    $("#place-order").attr("disabled",true);
+    $("#add-order").attr("disabled",true);
+    $("#place-order-Tbody").empty();
+    $("#subTotal").text("");
+
+}
 
 function setEnable(){
     $("#Discount").attr("disabled", false);
@@ -187,15 +207,15 @@ function loadDataToOrderTable(){
     }
 }
 
-$("#place-order").click(function (){
-    for (let i = 0; i < orderDB.length; i++) {
-        for (let j = 0; j < itemDB.length; j++) {
-            if (orderDB[i].getOrderItemCode()==itemDB[j].getItemCode()){
-                itemDB[j].setItemQuantity(itemDB[j].getItemQuantity()-orderDB[i].getOrderedQty());
-            }
-        }
-    }
-})
+// $("#place-order").click(function (){
+//     for (let i = 0; i < orderDB.length; i++) {
+//         for (let j = 0; j < itemDB.length; j++) {
+//             if (orderDB[i].getOrderItemCode()==itemDB[j].getItemCode()){
+//                 itemDB[j].setItemQuantity(itemDB[j].getItemQuantity()-orderDB[i].getOrderedQty());
+//             }
+//         }
+//     }
+// })
 
 $("#place-order-Tbody").on('click', '#btnItemCartDelete', function () {
     let tblOrderRow=$(this);
@@ -255,13 +275,19 @@ $("#Cash").keyup(function (event) {
     if (CashRegEx.test(cash)){
         $("#Cash").css('border','2px solid blue');
         $("#errorCash").text("");
-            if($("#place-order-Tbody tr").length <= 1){
+        if (cash > setTotalAfterDiscount()){
+            $("#Cash").css('border','2px solid blue');
+            $("#errorCash").text("");
+            if($("#place-order-Tbody tr").length > 0){
                 $("#place-order").attr("disabled", false);
                 if(event.key=="Enter"){
                     getBalance();
                 }
             }
-
+        }else {
+            $("#Cash").css('border','2px solid red');
+            $("#errorCash").text("Cash amount should be more than total");
+        }
     }else {
         $("#Cash").css('border','2px solid red');
         $("#errorCash").text("Cash is a required field: Pattern 00 or 00.00");
@@ -286,9 +312,15 @@ $("#Discount").keyup(function (event) {
 function setTotalAfterDiscount() {
         let discount=parseInt($("#Discount").val());
         let  total=parseInt($("#TotalPrice").val());
-        let grossTotal=total-(total*discount/100);
-    $("#subTotal").text("SubTotal :RS."+grossTotal+".00");
-    return grossTotal;
+        if (discount){
+            let grossTotal=total-(total*discount/100);
+            $("#subTotal").text("SubTotal :RS."+grossTotal+".00");
+            return grossTotal;
+        }else{
+            $("#subTotal").text("SubTotal :RS."+total+".00");
+            return total;
+        }
+
 }
 
 function OrderformValid() {
