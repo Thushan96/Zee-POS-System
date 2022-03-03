@@ -72,14 +72,28 @@ $(document).ready(function () {
 $("#order-date").val(d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate());
 });
 
+
 $("#qty-order").on('keyup', function (){
     var resp=OrderformValid();
+
     if (resp){
         $("#add-order").attr('disabled',false);
     }else{
         $("#add-order").attr('disabled',true);
     }
 });
+
+function updateQty(){
+    var itemCode=$("#cmbItem option:selected").text();
+    orderQTY= parseInt($("#qty-order").val());
+    for (let i = itemDB.length - 1; i >= 0; i--) {
+        if (itemDB[i].getItemCode()==itemCode){
+            itemDB[i].setItemQuantity(itemDB[i].getItemQuantity()-orderQTY);
+        }
+    }
+
+}
+
 
 let grandTotal,Total,orderQTY;
 $("#add-order").click(function (){
@@ -124,6 +138,9 @@ $("#add-order").click(function (){
     setTotal();
     setEnable();
     loadDataToOrderTable();
+    updateQty();
+    setItemData(itemCode);
+    $("#qty-order").val("");
 });
 
 function setEnable(){
@@ -193,14 +210,27 @@ $("#place-order-Tbody").on('click', '#btnItemCartDelete', function () {
 
 });
 
+function updateBackQty(id,qty){
+    for (let i = itemDB.length - 1; i >= 0; i--) {
+        if(itemDB[i].getItemCode()==id){
+            itemDB[i].setItemQuantity(itemDB[i].getItemQuantity()+qty);
+        }
+    }
+}
+
 function deleteRow(row){
     let rowId=row.closest('tr').children(':nth-child(1)').text();
+    let rowQty=parseInt(row.closest('tr').children(':nth-child(3)').text());
+    var itemCode=$("#cmbItem option:selected").text();
     let orderId=$("#order-id").val();
     for (let i = 0; i < orderDB.length; i++) {
         if (orderDB[i].getOrderItemCode()==rowId && orderDB[i].getOrderId()==orderId){
+            updateBackQty(orderDB[i].getOrderItemCode(),rowQty);
             orderDB.splice(i,1);
         }
     }
+    setItemData(itemCode);
+
 }
 
 
@@ -275,11 +305,18 @@ function OrderformValid() {
                     if (status){
                         $("#qty-order").css('border', '2px solid blue');
                         $("#lblReqQty").text("");
-                        return true;
+                        if (parseInt($("#qty-order").val()) > parseInt($("#qtyOnHand-order").val())){
+                            $("#qty-order").css('border', '2px solid red');
+                            $("#lblReqQty").text("Check available Quantity & Try again");
+                            return false;
+                        }else{
+                            $("#qty-order").css('border', '2px solid blue');
+                            $("#lblReqQty").text("");
+                            return true;
+                        }
                     }else{
                         $("#qty-order").css('border', '2px solid red');
                         $("#lblReqQty").text("Order Quantity is a required field : maximum 3 digits");
-                        return false;
                     }
 
                 }else{
