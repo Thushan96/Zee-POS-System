@@ -152,7 +152,7 @@ function clearData(){
     $("#TotalPrice,#Discount,#Cash,#Balance").val("");
     $("#cmbCustomer").val(0);
     $("#cmbItem").val(0);
-    $("cmbItem").attr("disabled",false);
+    $("#cmbItem").attr("disabled",false);
     $("#cmbCustomer").attr("disabled",false);
     $("#Discount").attr("disabled", true);
     $("#Cash").attr("disabled", true);
@@ -160,7 +160,6 @@ function clearData(){
     $("#add-order").attr("disabled",true);
     $("#place-order-Tbody").empty();
     $("#subTotal").text("");
-
 }
 
 function setEnable(){
@@ -169,9 +168,12 @@ function setEnable(){
 }
 
 function getTotal(){
+    var orderId=$("#order-id").val();
     grandTotal=0;
     for (let i = 0; i < orderDB.length; i++) {
-        grandTotal+=orderDB[i].getTotal();
+        if (orderDB[i].getOrderId()==orderId){
+            grandTotal+=orderDB[i].getTotal();
+        }
     }
     return grandTotal;
 }
@@ -198,11 +200,14 @@ function ifExists(){
 }
 
 function loadDataToOrderTable(){
+    var orderId=$("#order-id").val();
     $("#place-order-Tbody").empty();
     let row;
     for (let i = 0; i < orderDB.length; i++) {
-        row = `<tr><td>${orderDB[i].getOrderItemCode()}</td><td>${orderDB[i].getOrderItemName()}</td><td>${orderDB[i].getOrderedQty()}</td><td>${orderDB[i].getUnitPrice()}</td><td>${orderDB[i].getTotal()}</td>
+        if (orderDB[i].getOrderId()==orderId){
+            row = `<tr><td>${orderDB[i].getOrderItemCode()}</td><td>${orderDB[i].getOrderItemName()}</td><td>${orderDB[i].getOrderedQty()}</td><td>${orderDB[i].getUnitPrice()}</td><td>${orderDB[i].getTotal()}</td>
                 <td><button id="btnItemCartDelete" type="button" class="btn-sm btn-danger">Delete</button>`;
+        }
         $("#place-order-Tbody").append(row);
     }
 }
@@ -275,7 +280,7 @@ $("#Cash").keyup(function (event) {
     if (CashRegEx.test(cash)){
         $("#Cash").css('border','2px solid blue');
         $("#errorCash").text("");
-        if (cash > setTotalAfterDiscount()){
+        if (cash >= setTotalAfterDiscount()){
             $("#Cash").css('border','2px solid blue');
             $("#errorCash").text("");
             if($("#place-order-Tbody tr").length > 0){
