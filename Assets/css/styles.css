@@ -137,3 +137,11 @@ footer{
     left: 0;!important;
     margin: auto;!important;
 }
+
+.carousel-item{
+    background-size: cover;
+}
+.carousel-item img{
+    height: 95vh;
+    width: 100vw;
+}
