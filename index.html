@@ -9,6 +9,7 @@
     <link href="assets/css/fonts/css/all.css" rel="stylesheet">
 </head>
 <body>
+<div class="se-pre-con"></div>
 <header>
     <nav class="border-shadow navbar navbar sticky-top navbar-expand-lg navbar navbar-light rounded-bottom border-bottom border-dark bg-info">
         <div class="container-fluid">
@@ -530,6 +531,14 @@
 <script src="model/Item.js"></script>
 <script src="model/OrderDetails.js"></script>
 <script src="model/Orders.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+<script>
+    $(window).on("load", function(){
+        $(".se-pre-con").fadeOut("slow");
+    });
+
+
+</script>
 </body>
 <footer class="card-footer bg-black">
     <small id="f1" class="text-muted  mt-3 "><b>Copyright © 2022 All right reserved Website Powered BY Tshan</b></small>
